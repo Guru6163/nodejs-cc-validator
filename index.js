@@ -156,6 +156,31 @@ app.post('/validate', async (req, res) => {
     }
 });
 
+app.get('/getValidatedCards', async (req, res) => {
+    console.log('Received a getValidatedCards request');
+    try {
+        // Get the JWT token from the request header
+        const token = req.header('Authorization').replace('Bearer ', '');
+
+        // Verify the JWT token to get the user ID
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+        const userId = decodedToken.userId;
+
+        // Find the user by user ID
+        const user = await User.findById(userId);
+
+        // If user not found, return error
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Return the validated credit cards for the user
+        res.json({ validatedCreditCards: user.validatedCreditCards });
+    } catch (error) {
+        console.error('Error getting validated cards:', error);
+        res.status(500).json({ message: 'Error getting validated cards' });
+    }
+});
 
 
 // Function to validate a credit card number using Luhn's algorithm
