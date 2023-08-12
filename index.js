@@ -131,7 +131,7 @@ app.post('/validate', async (req, res) => {
 
         // Check if the credit card number already exists in the user's validatedCreditCards
         if (user.validatedCreditCards.some(card => card.cardNumber === cardNumber)) {
-            return res.status(400).json({ message: 'Credit card number already exists' });
+            return res.status(200).json({ message: 'Credit card number already exists' });
         }
 
         // Validate the credit card number using Luhn's algorithm
