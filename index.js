@@ -101,7 +101,7 @@ app.post('/signIn', async (req, res) => {
         }
         // If credentials are valid, generate a JWT token
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-            expiresIn: '1h', // Token expiration time
+            expiresIn: '365d', // Token expiration time
         });
 
         // Return the token to the client
