@@ -42,6 +42,10 @@ This is a Node.js project for validating credit card information and managing us
 
 2. The server will start on the specified port (default: 4000). You can access the API at `http://localhost:4000`.
 
+3. If you prefer to use the deployed backend, you can use the following base URL:
+
+   **Deployed Backend Base URL:** `https://cc-validator-backend.onrender.com`
+
 ## API Endpoints
 
 ### 1. User Registration (Sign-up)
@@ -75,3 +79,5 @@ This is a Node.js project for validating credit card information and managing us
 - The credit card validation is based on Luhn's algorithm, which checks the validity of the card number.
 - The project uses MongoDB to store user information and validated credit cards. Ensure that you have a MongoDB database available and provide the connection string in the `.env` file.
 - This project is a simple demonstration of credit card validation and user management and should be extended with proper security measures for production use.
+
+If you prefer to use the deployed backend, the base URL is provided above.
